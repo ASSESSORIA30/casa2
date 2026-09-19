@@ -1,0 +1,17 @@
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/cormorant";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ivory font-sans text-charcoal antialiased; font-feature-settings: "ss01", "cv11"; }
+  ::selection { background: #D6C9B0; }
+  :focus-visible { outline: 2px solid #A98B66; outline-offset: 3px; }
+  h1, h2, h3 { text-wrap: balance; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
