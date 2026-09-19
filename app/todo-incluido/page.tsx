@@ -1,0 +1,16 @@
+import type { Metadata } from 'next';
+import { ChefHat, Refrigerator, Sofa, BedDouble, Bath, Lamp, AirVent, Boxes } from 'lucide-react';
+import { getPublicHouses } from '@/data/houses';
+
+export const metadata: Metadata = { title: 'Todo incluido', description: 'Una vivienda construida, terminada, equipada y amueblada para entrar a vivir.' };
+
+export default function IncludedPage() {
+  const house=getPublicHouses()[4];
+  const items=[[ChefHat,'Cocina','Mobiliario, encimera, fregadero y configuración definida para cada modelo.'],[Refrigerator,'Electrodomésticos','Frigorífico, horno, placa, lavavajillas y lavadora según memoria de equipamiento.'],[Sofa,'Salón','Sofá, mesa de comedor, sillas y mobiliario principal previamente seleccionado.'],[BedDouble,'Dormitorios','Camas, colchones, mesitas y armarios previstos en la propuesta.'],[Bath,'Baños','Sanitarios, grifería, mobiliario, espejos y mamparas según especificación.'],[Lamp,'Iluminación','Puntos de luz y luminarias principales coordinadas con el interiorismo.'],[AirVent,'Climatización','Sistema de climatización e instalaciones definido según fabricante y proyecto.'],[Boxes,'Exterior y extras','Packs cerrados para piscina, paisajismo, domótica u otros elementos según modelo.']];
+  return <>
+    <section className="container-wide pt-32 md:pt-44"><div className="grid gap-8 border-t hairline pt-6 md:grid-cols-[.7fr_1.3fr]"><p className="eyebrow opacity-55">Ready to live</p><div><h1 className="display-xl">Más que<br/>llave en mano.</h1><p className="body-lg mt-8 max-w-2xl opacity-70">Entregamos una casa construida, terminada, equipada y amueblada. El objetivo no es darte las llaves de una obra acabada: es darte las llaves de una casa preparada para vivir.</p></div></div></section>
+    <section className="container-wide py-16 md:py-24"><div className="arch-image aspect-[16/8]"><img src={house.gallery.find(x=>x.alt==='Salón')?.src || house.gallery[3].src} alt="Interior completamente equipado" className="h-full w-full object-cover"/></div></section>
+    <section className="container-wide pb-24 md:pb-32"><div className="grid gap-px border bg-black/15 border-black/15 sm:grid-cols-2 lg:grid-cols-4">{items.map(([Icon,t,d])=>{const C=Icon as typeof ChefHat;return <article key={String(t)} className="min-h-72 concrete-panel p-6 md:p-7"><C size={23}/><h2 className="mt-16 text-2xl arch-serif">{String(t)}</h2><p className="mt-3 text-sm leading-6 opacity-65">{String(d)}</p></article>})}</div><p className="mt-6 max-w-3xl text-xs leading-5 opacity-55">El contenido concreto de cada partida se fijará en la memoria de equipamiento del modelo y contrato. Las imágenes del prototipo son conceptuales y no constituyen por sí mismas una memoria contractual.</p></section>
+    <section className="bg-[#252724] py-20 text-white md:py-28"><div className="container-copy text-center"><p className="eyebrow opacity-50">La diferencia</p><h2 className="display-lg mt-6">No compras una casa para terminarla después.</h2><p className="body-lg mt-7 opacity-65">La cocina no queda pendiente. El sofá no queda pendiente. Las camas no quedan pendientes. La iluminación no queda pendiente. Todo se coordina como parte del mismo producto.</p></div></section>
+  </>;
+}

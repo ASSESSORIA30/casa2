@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #20221f;
+  --paper: #d8dad6;
+  --shell: #cdd0cb;
+  --sand: #b8bbb5;
+  --stone: #9ea19b;
+  --champagne: #9f927f;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: url('/textures/concrete.webp');
+  background-repeat: repeat;
+  background-size: 720px 720px;
+  background-attachment: fixed;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: #aeb1ab; color: #1e201e; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+img { max-width: 100%; display: block; }
+
+.arch-serif { font-family: "Iowan Old Style", Baskerville, Georgia, serif; }
+.eyebrow { font-size: 11px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
+.display-xl { font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: clamp(3.1rem, 7vw, 7.8rem); line-height: .88; letter-spacing: -.045em; }
+.display-lg { font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: clamp(2.5rem, 5vw, 5.5rem); line-height: .96; letter-spacing: -.04em; }
+.body-lg { font-size: clamp(1.1rem, 1.7vw, 1.45rem); line-height: 1.55; }
+.container-wide { width: min(100% - 32px, 1520px); margin-inline: auto; }
+.container-copy { width: min(100% - 32px, 920px); margin-inline: auto; }
+.hairline { border-color: rgba(32,34,31,.17); }
+
+.reveal { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.reveal-delay { animation: rise .9s .12s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+.arch-image { overflow: hidden; background: #c3c6c0; }
+.arch-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.arch-image:hover img { transform: scale(1.018); }
+
+.btn-primary, .btn-ghost, .btn-light {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 22px; font-size: 12px; line-height: 1;
+  letter-spacing: .11em; text-transform: uppercase; transition: .25s ease;
+}
+.btn-primary { color: #f7f3eb; background: #222421; border: 1px solid #222421; }
+.btn-primary:hover { background: #3a3c37; border-color: #3a3c37; }
+.btn-ghost { border: 1px solid rgba(32,34,31,.32); background: transparent; }
+.btn-ghost:hover { background: #222421; color: white; border-color: #222421; }
+.btn-light { color: #1f211f; background: rgba(231,232,228,.94); border: 1px solid rgba(231,232,228,.94); }
+.btn-light:hover { background: white; }
+
+.field {
+  width: 100%; padding: 15px 0 13px; background: transparent; border: 0; border-bottom: 1px solid rgba(32,34,31,.28);
+  border-radius: 0; outline: 0; color: var(--ink);
+}
+.field:focus { border-bottom-color: var(--ink); }
+.field::placeholder { color: rgba(32,34,31,.48); }
+
+.model-stat { display: flex; flex-direction: column; gap: 4px; }
+.model-stat strong { font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: 1.5rem; font-weight: 400; }
+.model-stat span { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .62; }
+
+.grid-rule > * { border-top: 1px solid rgba(32,34,31,.17); }
+
+
+/* Architectural concrete surfaces */
+.concrete-bg {
+  background-color: #c9ccc6;
+  background-image: url('/textures/concrete.webp');
+  background-repeat: repeat;
+  background-size: 720px 720px;
+  background-blend-mode: multiply;
+}
+.concrete-bg-light {
+  background-color: rgba(220,222,217,.95);
+  background-image: url('/textures/concrete.webp');
+  background-repeat: repeat;
+  background-size: 720px 720px;
+}
+.concrete-panel {
+  background: rgba(227,229,224,.78);
+  border: 1px solid rgba(32,34,31,.08);
+  backdrop-filter: blur(2px);
+}
+.concrete-header {
+  background: rgba(216,218,214,.86);
+  backdrop-filter: blur(18px) saturate(.85);
+}
+
+@media (max-width: 767px) {
+  .container-wide, .container-copy { width: min(100% - 24px, 1520px); }
+  .display-xl { font-size: clamp(3.2rem, 17vw, 5.1rem); }
+  .display-lg { font-size: clamp(2.6rem, 13vw, 4.2rem); }
+}

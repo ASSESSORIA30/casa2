@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <filter id="coarse" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="9" result="clouds"/>
+      <feColorMatrix in="clouds" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.42" intercept="0.30"/>
+        <feFuncG type="linear" slope="0.42" intercept="0.30"/>
+        <feFuncB type="linear" slope="0.42" intercept="0.30"/>
+        <feFuncA type="table" tableValues="0 .26"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="fine" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.58" numOctaves="4" seed="27" result="grain"/>
+      <feColorMatrix in="grain" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.25" intercept="0.38"/>
+        <feFuncG type="linear" slope="0.25" intercept="0.38"/>
+        <feFuncB type="linear" slope="0.25" intercept="0.38"/>
+        <feFuncA type="table" tableValues="0 .24"/>
+      </feComponentTransfer>
+    </filter>
+    <radialGradient id="light" cx="24%" cy="15%" r="80%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".18"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#656863" stop-opacity=".07"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="#ced0cc"/>
+  <rect width="1024" height="1024" filter="url(#coarse)" opacity=".85"/>
+  <rect width="1024" height="1024" filter="url(#fine)" opacity=".78"/>
+  <rect width="1024" height="1024" fill="url(#light)"/>
+</svg>
